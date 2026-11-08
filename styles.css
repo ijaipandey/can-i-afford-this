@@ -1,0 +1,79 @@
+:root {
+  --bg: #0f1720;
+  --card: #182430;
+  --text: #e8eef4;
+  --muted: #9fb0c0;
+  --accent: #4cc38a;
+  --border: #2a3a4a;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  padding: 24px 16px;
+  line-height: 1.5;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  width: 100%;
+  max-width: 520px;
+}
+h1 { margin: 0 0 4px; font-size: 1.6rem; }
+.tagline { color: var(--muted); margin-top: 0; font-size: 0.95rem; }
+form { display: flex; flex-direction: column; gap: 6px; }
+label { font-weight: 600; font-size: 0.9rem; margin-top: 10px; }
+.hint { font-weight: 400; color: var(--muted); }
+input, select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #101a24;
+  color: var(--text);
+  font-size: 1rem;
+}
+input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.rule-row { margin-top: 10px; }
+.checkbox { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+.checkbox input { width: 18px; height: 18px; }
+.multiplier-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.multiplier-row label { margin-top: 0; font-weight: 400; }
+.multiplier-row input { width: 80px; }
+button {
+  margin-top: 18px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #0b1410;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.08); }
+.result {
+  margin-top: 22px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+.result h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.result.yes { border-color: var(--accent); }
+.result.tight { border-color: #e5b567; }
+.result.reconsider { border-color: #e5855c; }
+.result.not-now { border-color: #e05c5c; }
+.result.yes h2 { color: var(--accent); }
+.result.tight h2 { color: #e5b567; }
+.result.reconsider h2 { color: #e5855c; }
+.result.not-now h2 { color: #e05c5c; }
+.result ul { margin: 0; padding-left: 20px; }
+.numbers { color: var(--muted); font-size: 0.9rem; margin-bottom: 0; }
+.error { color: #e05c5c; font-weight: 600; }
+footer { margin-top: 22px; color: var(--muted); font-size: 0.8rem; }
+footer p { margin: 0; }

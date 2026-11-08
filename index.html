@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Can I Afford This?</title>
+<meta name="description" content="A privacy-first affordability checker. Enter a price, your free money and protected funds, and get an honest buy-or-wait verdict. Nothing leaves your device.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="card">
+  <h1>Can I afford this?</h1>
+  <p class="tagline">An honest buy-or-wait check. Everything runs on your device - nothing is sent anywhere.</p>
+
+  <form id="afford-form" novalidate>
+    <label for="price">Item price</label>
+    <input id="price" name="price" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 500" required>
+
+    <label for="available">Money free to spend</label>
+    <input id="available" name="available" type="number" inputmode="decimal" min="0" step="any" placeholder="After bills and savings are set aside" required>
+
+    <label for="protected">Protected funds <span class="hint">(never touched: bills, savings, emergency)</span></label>
+    <input id="protected" name="protected" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 20000">
+
+    <label for="purpose">What kind of purchase is it?</label>
+    <select id="purpose" name="purpose">
+      <option value="need">A real need</option>
+      <option value="want" selected>A want</option>
+      <option value="curiosity">Just curiosity</option>
+    </select>
+
+    <div class="rule-row">
+      <label class="checkbox">
+        <input id="rule-toggle" type="checkbox">
+        Use my multiplier rule
+      </label>
+      <div id="multiplier-row" class="multiplier-row" hidden>
+        <label for="multiplier">Free money must be at least</label>
+        <input id="multiplier" type="number" min="1" step="any" value="10" inputmode="decimal">
+        <span>times the price</span>
+      </div>
+    </div>
+
+    <label for="currency">Currency</label>
+    <select id="currency" name="currency">
+      <option value="INR" selected>₹ INR</option>
+      <option value="USD">$ USD</option>
+      <option value="EUR">€ EUR</option>
+      <option value="GBP">£ GBP</option>
+    </select>
+
+    <button type="submit">Check</button>
+  </form>
+
+  <section id="result" class="result" hidden aria-live="polite">
+    <h2 id="verdict-headline"></h2>
+    <ul id="verdict-reasons"></ul>
+    <p id="verdict-numbers" class="numbers"></p>
+  </section>
+
+  <p id="error" class="error" hidden role="alert"></p>
+
+  <footer>
+    <p>No accounts. No bank connections. No tracking. The numbers you type never leave this page.</p>
+  </footer>
+</main>
+<script src="afford.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
